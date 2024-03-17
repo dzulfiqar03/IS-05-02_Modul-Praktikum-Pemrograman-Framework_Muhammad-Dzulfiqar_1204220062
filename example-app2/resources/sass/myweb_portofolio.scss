@@ -1,0 +1,62 @@
+* {
+    color: white;
+}
+
+.allSect {
+    background-color: #0e302f;
+}
+
+.name,
+.col h1,
+.logo a,
+.city {
+    font-family: Lilita One;
+}
+
+.city {
+    color: #fcb336;
+}
+
+.navbar,
+footer {
+    background-color: #386261;
+}
+
+button.btn {
+    background-color: #fcb336;
+    color: black;
+}
+
+button.btn2,
+.col button {
+    background: none;
+    border: 2px solid #fcb336;
+}
+
+.title h1 {
+    font-family: Manrope;
+}
+
+.expSect {
+    display: grid;
+    grid-gap: 30px;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal:last-child {
+    position: relative;
+    transform: translateY(0px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
