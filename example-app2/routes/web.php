@@ -60,9 +60,9 @@ Route::get('/route_priority/user', function() {
     return "This is Route 2";
 });
 
-Route::fallback(function() {
-    return 'This is Fallback Route';
-});
+// Route::fallback(function() {
+//     return 'This is Fallback Route';
+// });
 
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/dashboard', function() {

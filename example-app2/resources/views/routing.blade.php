@@ -42,7 +42,7 @@
                 Route Parameter (Optional Parameter)
             </a>
 
-            <a href="{{ url('/title/this-is-my-title') }}" class="list-group-item list-group-item-action">
+            <a href="{{ url('/title/thisismytitle') }}" class="list-group-item list-group-item-action">
                 Route With Regular Expression Constraints
             </a>
 
