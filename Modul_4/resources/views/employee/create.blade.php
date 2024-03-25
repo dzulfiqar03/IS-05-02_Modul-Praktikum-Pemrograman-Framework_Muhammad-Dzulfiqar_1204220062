@@ -43,7 +43,7 @@
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-6">
 
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                         @foreach ($errors->all() as $error)
                             <div class="alert alert-danger alert-dismissible fade show">
                                 {{ $error }}
@@ -51,7 +51,7 @@
                                     aria-label="Close"></button>
                             </div>
                         @endforeach
-                    @endif
+                    @endif --}}
 
                     <div class="mb-3 text-center">
                         <i class="bi-person-circle fs-1"></i>
