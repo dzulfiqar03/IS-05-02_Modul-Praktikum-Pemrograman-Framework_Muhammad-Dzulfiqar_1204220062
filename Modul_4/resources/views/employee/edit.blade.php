@@ -38,8 +38,9 @@
     </nav>
 
     <div class="container-sm mt-5">
-        <form action="{{ route('employees.store') }}" method="POST">
+        <form action="{{ route('employees.update',  ['employee' => $employee->id]) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-6">
 
@@ -55,14 +56,14 @@
 
                     <div class="mb-3 text-center">
                         <i class="bi-person-circle fs-1"></i>
-                        <h4>Create Employee</h4>
+                        <h4>Edit Employee</h4>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName" class="form-label">First Name</label>
                             <input class="form-control @error('firstName') is-invalid @enderror" type="text"
-                                name="firstName" id="firstName" value="{{ old('firstName') }}"
+                                name="firstName" id="firstName" value="{{ $employee->firstname }}"
                                 placeholder="Enter First Name">
                             @error('firstName')
                                 <div class="invalid-feedback">
@@ -73,7 +74,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
                             <input class="form-control @error('lastName') is-invalid @enderror" type="text"
-                                name="lastName" id="lastName" value="{{ old('lastName') }}"
+                                name="lastName" id="lastName"  value="{{ $employee->lastname }}"
                                 placeholder="Enter Last Name">
                             @error('lastName')
                                 <div class="invalid-feedback">
@@ -84,7 +85,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input class="form-control @error('email') is-invalid @enderror" type="text"
-                                name="email" id="email" value="{{ old('email') }}" placeholder="Enter Email">
+                                name="email" id="email" value="{{ $employee->email }}" placeholder="Enter Email">
                             @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -94,7 +95,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="age" class="form-label">Age</label>
                             <input class="form-control @error('age') is-invalid @enderror" type="text" name="age"
-                                id="age" value="{{ old('age') }}" placeholder="Enter Age">
+                                id="age" value={{ $employee->age }} placeholder="Enter Age">
                             @error('age')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -107,7 +108,7 @@
                             <select name="position" id="position" class="form-select">
                                 @foreach ($positions as $position)
                                     <option value="{{ $position->id }}"
-                                        {{ old('position') == $position->id ? 'selected' : '' }}>
+                                        {{ $employee->position_id == $position->id ? 'selected' : '' }}>
                                         {{ $position->code . ' - ' . $position->name }}</option>
                                 @endforeach
                             </select>
