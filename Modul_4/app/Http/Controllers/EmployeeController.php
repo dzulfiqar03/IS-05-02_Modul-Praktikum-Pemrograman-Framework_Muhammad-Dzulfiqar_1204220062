@@ -96,18 +96,15 @@ class EmployeeController extends Controller
     {
         $pageTitle = 'Employee Detail';
 
-// QUERY BUILDER
+        // QUERY BUILDER
         $employee = DB::table('employees')
-            ->select([
-                'employees.*',
-                DB::raw('employees.id AS employee_id'),
-                'positions.name AS position_name',
-            ])
-            ->leftJoin('positions', function ($join) use ($id) {
+            ->select('employees.*', 'employees.id as employee_id', 'positions.name as position_name')
+            ->leftJoin('positions', function ($join) {
                 $join->on('employees.position_id', '=', 'positions.id');
             })
             ->where('employees.id', '=', $id)
             ->first();
+
 
         // RAW SQL QUERY
 
@@ -126,16 +123,12 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-        $pageTitle = 'Employee Detail';
+        $pageTitle = 'Employee Edit';
 
         // QUERY BUILDER
         $employee = DB::table('employees')
-            ->select([
-                'employees.*',
-                DB::raw('employees.id AS employee_id'),
-                'positions.name AS position_name',
-            ])
-            ->leftJoin('positions', function ($join) use ($id) {
+            ->select('employees.*', 'employees.id as employee_id', 'positions.name as position_name')
+            ->leftJoin('positions', function ($join) {
                 $join->on('employees.position_id', '=', 'positions.id');
             })
             ->where('employees.id', '=', $id)
