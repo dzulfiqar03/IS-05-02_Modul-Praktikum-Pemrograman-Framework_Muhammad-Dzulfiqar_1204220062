@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: darkgrey;
+}
+
+.content{
+    margin-top: 50px;
+}
+
+.textName{
+    top: 150px;
+    right: 400px;
+    font-size: 3vh;
+}
+
+.nim, .ttlUts{
+    transform: rotate(-30deg) scale(3);
+    text-shadow: 2px 2px 5px #ffde59;
+}
+
+.ttlUts{
+    transform: rotate(30deg) scale(3);
+    text-shadow: 2px 2px 5px #ffde59;
+}
+
+.subTxt{
+    color:#ffde59;    text-shadow: 2px 2px 5px #000000;
+
+}
+
+.sayText{
+    width: max-content;
+    margin: auto;
+    background-color: #ffde59;
+}
+
+.btnHome{
+    background-color: #ffde59;
+}
