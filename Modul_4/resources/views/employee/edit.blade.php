@@ -139,7 +139,9 @@
         </form> --}}
 
             {{-- WITH DATABASE MODEL METHOD --}}
-            <form action="{{ route('employees.update', ['employee' => $employee->id]) }}" method="POST">
+            <form action="{{ route('employees.update' , ['employee' => $employee->id]) }}" method="POST" enctype="multipart/form-data">
+
+            {{-- <form action="{{ route('employees.update', ['employee' => $employee->id]) }}" method="POST"> --}}
                 @csrf
                 @method('put')
                 <div class="row justify-content-center">
@@ -217,6 +219,10 @@
                                 @error('position')
                                     <div class="text-danger"><small>{{ $message }}</small></div>
                                 @enderror
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="cv" class="form-label">Curriculum Vitae (CV)</label>
+                                <input type="file" class="form-control" name="cv" id="cv">
                             </div>
                         </div>
                         <hr>

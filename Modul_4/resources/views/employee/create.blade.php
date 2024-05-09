@@ -12,7 +12,6 @@
 <body>
     @extends('layouts.app')
     @section('content')
-
         {{-- <nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <div class="container">
             <a href="{{ route('home') }}" class="navbar-brand mb-0 h1"><i class="bi-hexagon-fill me-2"></i> Data
@@ -135,7 +134,8 @@
             </div>
         </form> --}}
 
-            <form action="{{ route('employees.store') }}" method="POST">
+            <form action="{{ route('employees.store') }}" method="POST" enctype="multipart/form-data">
+                {{-- <form action="{{ route('employees.store') }}" method="POST"> --}}
                 @csrf
                 <div class="row justify-content-center">
                     <div class="p-5 bg-light rounded-3 border col-xl-6">
@@ -196,6 +196,11 @@
                                     <div class="text-danger"><small>{{ $message }}</small></div>
                                 @enderror
                             </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="cv" class="form-label">Curriculum Vitae (CV)</label>
+                                <input type="file" class="form-control" name="cv" id="cv">
+                            </div>
+
                         </div>
                         <hr>
                         <div class="row">
@@ -215,9 +220,8 @@
                 </div>
             </form>
         </div>
+    @endsection
+    @vite('resources/js/app.js')
+</body>
 
-        @endsection
-        @vite('resources/js/app.js')
-    </body>
-
-    </html>
+</html>
