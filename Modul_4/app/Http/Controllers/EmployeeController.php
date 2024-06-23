@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -330,6 +330,15 @@ class EmployeeController extends Controller
     public function exportExcel()
 {
     return Excel::download(new EmployeesExport, 'employees.xlsx');
+}
+
+public function exportPdf()
+{
+    $employees = Employee::all();
+
+    $pdf = PDF::loadView('employee.export_pdf', compact('employees'));
+
+    return $pdf->download('employees.pdf');
 }
 
 }

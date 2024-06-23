@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,9 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::redirect('/', '/login');
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
 
@@ -116,3 +119,7 @@ Route::get('getEmployees', [EmployeeController::class, 'getData'])->name('employ
 Route::get('exportExcel', [EmployeeController::class, 'exportExcel'])->name('employees.exportExcel');
 
 Route::get('exportPdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -11,5 +11,5 @@
 
     {{ $chart->script() }}
 
-    
+
 @endsection
